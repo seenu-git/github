@@ -1,0 +1,19 @@
+kind: Deployment
+metadata:
+  name: rallapalli-deployment
+  namespace: rallapallli
+spec:
+  selector:
+    matchLabels:
+      app: rallapalli-app
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: rallapalli-app
+    spec:
+      containers:
+      - name: seenu
+        image: 349948765351.dkr.ecr.ap-south-1.amazonaws.com/seenu-ecr-repo:latest
+        ports:
+        - containerPort: 80
